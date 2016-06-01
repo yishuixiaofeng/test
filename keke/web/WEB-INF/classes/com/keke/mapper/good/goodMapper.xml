@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+ <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN' 'http://mybatis.org/dtd/mybatis-3-mapper.dtd'> 
+<mapper namespace='good'> 
+	<resultMap id='goodMap' type='Good'> 
+ 		<result column='ID' property='id' /> 
+		<result column='TYPE' property='type' /> 
+		<result column='NAME' property='name' /> 
+		<result column='PRICE' property='price' /> 
+		<result column='STOCK' property='stock' /> 
+		<result column='COMPANY' property='company' /> 
+		<result column='DESCRIPTION' property='description' /> 
+		<result column='STATUS' property='status' /> 
+		<result column='CREATTIME' property='creattime' /> 
+	</resultMap> 
+	<sql id='goodColumns' > 
+ 		ID,
+		TYPE,
+		NAME,
+		PRICE,
+		STOCK,
+		COMPANY,
+		DESCRIPTION,
+		STATUS,
+		CREATTIME
+	</sql>
+	<insert id='insertGood' parameterType='Good'> 
+ 		<selectKey resultType='int' order='AFTER' keyProperty='id'> 
+ 			SELECT LAST_INSERT_ID() AS ID 
+		</selectKey> 
+		INSERT INTO GOOD(TYPE,NAME,PRICE,STOCK,COMPANY,DESCRIPTION,STATUS,CREATTIME) 
+		VALUES(#{type},#{name},#{price},#{stock},#{company},#{description},#{status},#{creattime}); 
+	</insert> 
+	<update id='updateGoodById' parameterType='Good'> 
+ 		UPDATE GOOD 
+		<set>
+			<if test='type != null'>TYPE=#{type},</if>
+			<if test='name != null'>NAME=#{name},</if>
+			<if test='price != null'>PRICE=#{price},</if>
+			<if test='stock != null'>STOCK=#{stock},</if>
+			<if test='company != null'>COMPANY=#{company},</if>
+			<if test='description != null'>DESCRIPTION=#{description},</if>
+			<if test='status != null'>STATUS=#{status},</if>
+			<if test='creattime != null'>CREATTIME=#{creattime}</if>
+		</set> 
+		WHERE ID=#{id} 
+	</update>
+	<update id='updateGoodStatusById' parameterType='hashmap'> 
+ 		UPDATE GOOD 
+		<set>
+			STATUS=#{status}
+		</set> 
+		WHERE ID=#{id} 
+	</update>
+	<select id='getGoodById' resultMap='goodMap'> 
+ 		SELECT <include refid='goodColumns' /> 
+		FROM GOOD	WHERE ID = #{id} AND STATUS = 0 
+	</select>
+	<select id='countAllGood' resultType='int'> 
+		SELECT count(ID) FROM GOOD 
+		WHERE STATUS = 0 
+		<if test='keyword  != null'>AND NAME LIKE CONCAT('%',#{keyword},'%')  </if> 
+	</select>
+	<select id='getAllGood' resultMap='goodMap'> 
+ 		SELECT <include refid='goodColumns' /> FROM GOOD 
+		WHERE STATUS = 0 
+		<if test='keyword  != null'>AND NAME LIKE CONCAT('%',#{keyword},'%')  </if> 
+		ORDER BY CREATTIME DESC 
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if> 
+	</select>
+</mapper>

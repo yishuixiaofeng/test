@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--下面三行是让浏览器无缓存的设置；开发的时候使用-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <script>
+    	var appContextPath = "${request.contextPath}";
+    </script>
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title></title>
+    <!--为各个浏览器样式统一的css插件-->
+    <link rel="stylesheet" href="${request.contextPath}/vendor/marx/2.0.4/css/marx.min.css"/>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/font-awesome/4.5.0/css/font-awesome.css"/>
+    <script src="${request.contextPath}/vendor/jquery/1.11.0/jquery-1.11.0.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap-metisMenu/2.1.0/metisMenu.min.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap-metisMenu/2.1.0/metisMenu.min.js"></script>
+    <script src="${request.contextPath}/vendor/reactjs/0.14.0/react-with-addons.min.js"></script>
+    <script src="${request.contextPath}/vendor/reactjs/0.14.0/react-dom.min.js"></script>
+    <script src="${request.contextPath}/vendor/classnames/2.2.3/index.js" ></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap-metisMenu/leftTabs.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap-pagination/1.2.5/jquery.twbsPagination.min.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap3-dialog/1.35.1/css/bootstrap-dialog.min.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap3-dialog/1.35.1/js/bootstrap-dialog.min.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap-formvalidation/0.6.1/css/formValidation.min.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap-formvalidation/0.6.1/js/formValidation.min.js"></script>
+    <script src="${request.contextPath}/vendor/bootstrap-formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap-select/1.7.2/css/bootstrap-select.min.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap-select/1.7.2/js/bootstrap-select.min.js"></script>
+    <script src="${request.contextPath}/vendor/bootstrap-select/1.7.2/js/i18n/defaults-zh_CN.min.js"></script>
+    <script src="${request.contextPath}/src/util/datasToFlow.js"></script>
+    <script src="${request.contextPath}/src/util/formValidationIsValid.js"></script>
+    <!--子页面加载css的方法-->
+    <script src="${request.contextPath}/src/util/importCSS.js"></script>
+    <!--子页面加载js的方法-->
+    <script src="${request.contextPath}/src/util/importScript.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/common/common.css"/>
+    <link rel="stylesheet" href="${request.contextPath}/src/plugin/table/table.css"/>
+    <script src="${request.contextPath}/src/plugin/table/table.js" ></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/plugin/datagridPanel/datagridPanel.css"/>
+    <script src="${request.contextPath}/src/plugin/datagridPanel/datagridPanel.js" ></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/plugin/stateTable/stateTable.css"/>
+    <script src="${request.contextPath}/src/plugin/stateTable/stateTable.js" ></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/plugin/pagination/pagination.css"/>
+    <script src="${request.contextPath}/src/plugin/pagination/pagination.js" ></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/plugin/pageTurning/pageTurning.css"/>
+    <script  src="${request.contextPath}/src/plugin/pageTurning/pageTurning.js"></script>
+    <script src="${request.contextPath}/src/util/serializeForm.js"></script>
+    <script src="${request.contextPath}/src/util/dragable.js"></script>
+    <script src="${request.contextPath}/src/util/fillForm.js"></script>
+    <script src="${request.contextPath}/src/util/clearForm.js"></script>
+    <script src="${request.contextPath}/src/util/generateLeftTabs.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/plugin/modalOperateState/modalOperateState.css"/>
+    <script src="${request.contextPath}/src/plugin/modalOperateState/modalOperateState.js"></script>
+    <script src="${request.contextPath}/src/util/dateFormat.js"></script>
+    <script  src="${request.contextPath}/src/util/beforeSendAndAfterReceive.js"></script>
+    <script src="${request.contextPath}/src/common/static.js"></script>
+    <script src="${request.contextPath}/src/util/ajaxSuccessCallback.js"></script>
+    <script src="${request.contextPath}/src/util/enterForm.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/plugin/resetSearch/resetSearch.css"/>
+    <script src="${request.contextPath}/src/plugin/resetSearch/resetSearch.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/plugin/breadcrumbPanel/breadcrumbPanel.css"/>
+    <script src="${request.contextPath}/src/plugin/breadcrumbPanel/breadcrumbPanel.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="${request.contextPath}/src/index/index.css"/>
+    <script src="${request.contextPath}/src/index/index.js"></script>
+</head>
+<body>
+<div class="alert alert-success load" role="alert"><span class="spinning fa fa-spinner fa-spin"></span></div>
+<div class="container-fluid">
+    <div class="row firstBlock">
+        <div class="col-xs-15 logo"></div>
+        <div class="col-xs-offset-99 col-xs-4">
+            <img src="${request.contextPath}/src/index/image/headPortrait.jpg" id="headPortrait">
+        </div>
+        <div class="col-xs-2 indexDropdown">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a id="userInfoBtn" data-toggle="modal" data-target="#userInfoModal">个人信息</a></li>
+                    <li><a id="updateUserPwdModalBtn" data-toggle="modal" data-target="#updateUserPwdModal">修改密码</a></li>
+                    <li><a id="logout">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row secondBlock">
+        <div class="col-xs-15">
+            <aside class="leftTabs">
+                <nav id="leftTabs"  class="sidebar-nav">
+                </nav>
+            </aside>
+        </div>
+        <div id="indexMainContent" class="col-xs-105"></div>
+    </div>
+    <div class="modal fade" id="userInfoModal" data-backdrop="false">
+        <div class="modal-dialog dragable" data-handle=".modal-header">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <span>个人信息</span>
+                </div>
+                <div class="modal-body">
+                    <form id="userInfoForm"  method="post" class="form-horizontal" action="">
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">用户名</span>
+                                    <input type="text" name="username" class="form-control"readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">角色</span>
+                                    <input name="f_role_name" class="form-control"readonly/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">真实姓名</span>
+                                    <input type="text" name="name" class="form-control"readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">手机号</span>
+                                    <input type="text" name="phone" class="form-control"readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">部门名称</span>
+                                    <input type="text" name="department" class="form-control"readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">描述信息</span>
+                                    <input type="text" name="description" class="form-control"readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">创建时间</span>
+                                    <input type="text" name="creattime" class="form-control"readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default " data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="updateUserPwdModal" data-backdrop="false">
+            <div class="modal-dialog dragable" data-handle=".modal-header">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <span>修改密码</span>
+                    </div>
+                    <div class="modal-body">
+                        <form id="updateUserPwdForm"  method="post" class="form-horizontal" action="">
+                            <div class="form-group">
+                                <div class="col-xs-offset-10 col-xs-90">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">原密码</span>
+                                        <input type="hidden" name="id"/>
+                                        <input type="password" name="originalPwd" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-offset-10 col-xs-90">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">新密码</span>
+                                        <input type="password" name="newPwd" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-offset-10 col-xs-90">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">确认密码</span>
+                                        <input type="password" name="confirmPwd" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="updateUserPwdBtn" class="btn btn-primary submitBtn">
+                            <span>确定</span>
+                            <span class="spinning fa fa-spinner fa-spin hide"></span>
+                        </button>
+                        <button type="button" class="btn btn-default " data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

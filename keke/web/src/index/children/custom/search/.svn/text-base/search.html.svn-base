@@ -1,0 +1,19 @@
+<script>
+    importCSS(appContextPath+"/src/index/children/custom/search/search.css");
+    importScript(appContextPath+"/src/index/children/custom/search/search.js");
+</script>
+<div class="row">
+    <div class="col-lg-120 tableFilterBar">
+        <form class="form-inline"  id="customSearchTableFilterBar">
+            <div class="form-group">
+                <label>关键词:</label>
+                <input name="keyword" type="text" class="form-control" placeholder="关键词">
+            </div>
+            <a id="searchSearchBtn" class="btn btn-primary searchBtn"></a>
+            <a class="btn btn-primary resetSearch"></a>
+        </form>
+    </div>
+    <div class="col-xs-120" id="customSearchTable">
+    </div>
+    <div id="customSearchTablePagination"></div>
+</div>

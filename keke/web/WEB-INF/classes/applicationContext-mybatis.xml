@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- Spring整合myBatis后，这个配置文件基本可以不要了 -->
+	<!-- 设置外部配置文件 -->
+	<!-- 设置类别名 -->
+	<typeAliases>
+	    
+		<typeAlias type="com.keke.bean.user.User" alias="User" />
+		<typeAlias type="com.keke.bean.user.UserGood" alias="UserGood" />
+		<typeAlias type="com.keke.bean.good.Good" alias="Good" />
+		<typeAlias type="com.keke.bean.good.GoodType" alias="GoodType" />
+		
+		
+	</typeAliases>
+	<!-- 设置数据库连接环境 -->
+	<!-- 映射文件 -->
+	<mappers>
+	    <mapper resource="com/keke/mapper/user/userMapper.xml" />
+	    <mapper resource="com/keke/mapper/user/userGoodMapper.xml" />
+	    <mapper resource="com/keke/mapper/good/goodMapper.xml" />
+	    <mapper resource="com/keke/mapper/good/goodTypeMapper.xml" />
+	   
+	</mappers>
+</configuration>

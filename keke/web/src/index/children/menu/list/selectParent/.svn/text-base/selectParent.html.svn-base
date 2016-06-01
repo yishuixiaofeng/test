@@ -1,0 +1,9 @@
+<script>
+    importCSS(appContextPath+"/src/index/children/menu/list/selectParent/selectParent.css");
+    importScript(appContextPath+"/src/index/children/menu/list/selectParent/selectParent.js",true);
+</script>
+<div class="col-xs-120" id="selectParentMenuListTable">
+</div>
+<div id="selectParentMenuListTablePagination">
+
+</div>

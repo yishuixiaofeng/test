@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--下面三行是让浏览器无缓存的设置；开发的时候使用-->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <script>
+        var appContextPath = "${request.contextPath}";
+    </script>
+
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title></title>
+    <!--为各个浏览器样式统一的css插件-->
+    <link rel="stylesheet" href="${request.contextPath}/vendor/marx/2.0.4/css/marx.min.css"/>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/font-awesome/4.5.0/css/font-awesome.css"/>
+    <script src="${request.contextPath}/vendor/jquery/1.11.0/jquery-1.11.0.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap3-dialog/1.35.1/css/bootstrap-dialog.min.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap3-dialog/1.35.1/js/bootstrap-dialog.min.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/vendor/bootstrap-formvalidation/0.6.1/css/formValidation.min.css"/>
+    <script src="${request.contextPath}/vendor/bootstrap-formvalidation/0.6.1/js/formValidation.min.js"></script>
+    <script src="${request.contextPath}/vendor/bootstrap-formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/common/common.css"/>
+    <script src="${request.contextPath}/src/util/serializeForm.js"></script>
+    <script  src="${request.contextPath}/src/util/formValidationIsValid.js"></script>
+    <script  src="${request.contextPath}/src/util/beforeSendAndAfterReceive.js"></script>
+    <link rel="stylesheet" href="${request.contextPath}/src/common/common.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="${request.contextPath}/src/login/login.css"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="modal fade" id="loginDialog" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content translucence">
+                    <div class="modal-header">
+                        <h4>账号登录</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm" class="form-horizontal" onsubmit="return false;" >
+                            <div class="form-group">
+                                <div class="col-xs-120">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">用户名</span>
+                                        <input type="text" name="username" class="form-control" placeholder="请输入用户名">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-120">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">密码</span>
+                                        <input type="password" name="pwd" class="form-control" placeholder="请输入密码">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="loginBtn" class="btn btn-primary submitBtn">
+                            <span>登录</span>
+                            <span class="spinning fa fa-spinner fa-spin hide"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${request.contextPath}/src/login/login.js"></script>
+</body>
+</html>

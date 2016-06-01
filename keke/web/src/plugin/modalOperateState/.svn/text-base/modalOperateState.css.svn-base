@@ -1,0 +1,9 @@
+[data-operate=save]:after,[data-operate=add]::after,.modalHeaderText:after,.modalHeaderText::after{
+    content: "添加";
+}
+[data-operate=update]:after,[data-operate=update]::after,.modalHeaderText.updateText:after,.modalHeaderText.updateText::after{
+    content: "修改";
+}
+[data-operate=delete]:after,[data-operate=delete]::after{
+    content:"删除"
+}

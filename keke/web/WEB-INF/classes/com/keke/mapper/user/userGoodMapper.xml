@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+ <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN' 'http://mybatis.org/dtd/mybatis-3-mapper.dtd'> 
+<mapper namespace='userGood'> 
+	<resultMap id='userGoodMap' type='UserGood'> 
+ 		<result column='ID' property='id' /> 
+		<result column='F_GOOD_ID' property='f_good_id' /> 
+		<result column='F_GOOD_NAME' property='f_good_name' /> 
+		<result column='F_USER_ID' property='f_user_id' />
+		<result column='F_USER_NAME' property='f_user_name' /> 
+		<result column='TYPE' property='type' /> 
+		<result column='STATUS' property='status' /> 
+		<result column='CREATTIME' property='creattime' /> 
+		<result column='BUY_COUNT' property='buyCount' /> 
+		<result column='TOTAL_MONEY' property='totalMoney' /> 
+		<result column='FINAL_MONEY' property='finalMoney' /> 
+		<result column='DESCRIPTION' property='description' /> 
+	</resultMap> 
+	<sql id='userGoodColumns' > 
+ 		UG.ID,
+		UG.F_GOOD_ID,
+		G.NAME F_GOOD_NAME,
+		UG.F_USER_ID,
+		U.NAME F_USER_NAME,
+		UG.TYPE,
+		UG.STATUS,
+		UG.CREATTIME,
+		UG.BUY_COUNT,
+		UG.TOTAL_MONEY,
+		UG.FINAL_MONEY,
+		UG.DESCRIPTION
+	</sql>
+	<insert id='insertUserGood' parameterType='UserGood'> 
+ 		<selectKey resultType='int' order='AFTER' keyProperty='id'> 
+ 			SELECT LAST_INSERT_ID() AS ID 
+		</selectKey> 
+		INSERT INTO USER_GOOD(F_GOOD_ID,F_USER_ID,TYPE,STATUS,CREATTIME,BUY_COUNT,TOTAL_MONEY,FINAL_MONEY,DESCRIPTION) 
+		VALUES(#{f_good_id},#{f_user_id},#{type},#{status},#{creattime},#{buyCount},#{totalMoney},#{finalMoney},#{description}); 
+	</insert> 
+	<update id='updateUserGoodById' parameterType='UserGood'> 
+ 		UPDATE USER_GOOD 
+		<set>
+			<if test='f_good_id != null'>F_GOOD_ID=#{f_good_id},</if>
+			<if test='f_user_id != null'>F_USER_ID=#{f_user_id},</if>
+			<if test='type != null'>TYPE=#{type},</if>
+			<if test='status != null'>STATUS=#{status},</if>
+			<if test='creattime != null'>CREATTIME=#{creattime},</if>
+			<if test='buyCount != null'>BUY_COUNT=#{buyCount},</if>
+			<if test='totalMoney != null'>TOTAL_MONEY=#{totalMoney},</if>
+			<if test='finalMoney != null'>FINAL_MONEY=#{finalMoney},</if>
+			<if test='description != null'>DESCRIPTION=#{description}</if>
+		</set> 
+		WHERE ID=#{id} 
+	</update>
+	<update id='updateUserGoodStatusById' parameterType='hashmap'> 
+ 		UPDATE USER_GOOD 
+		<set>
+			STATUS=#{status}
+		</set> 
+		WHERE ID=#{id} 
+	</update>
+	<select id='getUserGoodById' resultMap='userGoodMap'> 
+		SELECT <include refid='userGoodColumns' />
+ 		FROM USER_GOOD	 UG
+		LEFT JOIN USER U ON U.ID = UG.F_USER_ID 
+		LEFT JOIN GOOD G ON G.ID = UG.F_GOOD_ID 
+		WHERE  UG.STATUS != -1 AND U.STATUS = 0 AND G.STATUS = 0
+		AND UG.ID = #{id}
+	</select>
+	<select id='countAllUserGood' resultType='int'> 
+		SELECT count(ID) FROM USER_GOOD 
+		WHERE STATUS != -1 
+		<if test='keyword  != null'>AND NAME LIKE CONCAT('%',#{keyword},'%')  </if> 
+		<if test='type  != null'>AND TYPE = #{type}  </if> 
+		<if test='f_user_id  != null'>AND F_USER_ID = #{f_user_id}  </if> 
+	</select>
+	<select id='getAllUserGood' resultMap='userGoodMap'> 
+ 		SELECT <include refid='userGoodColumns' /> 
+ 		FROM USER_GOOD	 UG
+		LEFT JOIN USER U ON U.ID = UG.F_USER_ID 
+		LEFT JOIN GOOD G ON G.ID = UG.F_GOOD_ID 
+		WHERE  UG.STATUS != -1 AND U.STATUS = 0 AND G.STATUS = 0
+		<if test='keyword  != null'>AND U.NAME LIKE CONCAT('%',#{keyword},'%')  </if> 
+		<if test='type  != null'>AND UG.TYPE = #{type}  </if> 
+		<if test='f_user_id  != null'>AND UG.F_USER_ID = #{f_user_id}  </if> 
+		ORDER BY UG.CREATTIME DESC 
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if> 
+	</select>
+</mapper>

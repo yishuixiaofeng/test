@@ -1,0 +1,15 @@
+#customListTableDetailModalUserinfoForm{
+    margin-top: 15px;
+}
+.taocanModule{
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+.taocanModule .dl-horizontal{
+    margin-bottom: 0;
+}
+#serverEmpty::after{
+    content: "用户没有所属服务器,分配服务器请联系系统管理员";
+    color: red;
+}

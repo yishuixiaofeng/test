@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+ <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN' 'http://mybatis.org/dtd/mybatis-3-mapper.dtd'> 
+<mapper namespace='user'> 
+	<resultMap id='userMap' type='User'> 
+ 		<result column='ID' property='id' /> 
+		<result column='NAME' property='name' /> 
+		<result column='PWD' property='pwd' /> 
+		<result column='AGE' property='age' /> 
+		<result column='DESCRIPTION' property='description' /> 
+		<result column='STATUS' property='status' /> 
+		<result column='CREATTIME' property='creattime' /> 
+	</resultMap> 
+	<sql id='userColumns' > 
+ 		ID,
+		NAME,
+		PWD,
+		AGE,
+		DESCRIPTION,
+		STATUS,
+		CREATTIME
+	</sql>
+	<insert id='insertUser' parameterType='User'> 
+ 		<selectKey resultType='int' order='AFTER' keyProperty='id'> 
+ 			SELECT LAST_INSERT_ID() AS ID 
+		</selectKey> 
+		INSERT INTO USER(NAME,PWD,AGE,DESCRIPTION,STATUS,CREATTIME) 
+		VALUES(#{name},#{pwd},#{age},#{description},#{status},#{creattime}); 
+	</insert> 
+	<update id='updateUserById' parameterType='User'> 
+ 		UPDATE USER 
+		<set>
+			<if test='name != null'>NAME=#{name},</if>
+			<if test='pwd != null'>PWD=#{pwd},</if>
+			<if test='age != null'>AGE=#{age},</if>
+			<if test='description != null'>DESCRIPTION=#{description},</if>
+			<if test='status != null'>STATUS=#{status},</if>
+			<if test='creattime != null'>CREATTIME=#{creattime}</if>
+		</set> 
+		WHERE ID=#{id} 
+	</update>
+	<update id='updateUserStatusById' parameterType='hashmap'> 
+ 		UPDATE USER 
+		<set>
+			STATUS=#{status}
+		</set> 
+		WHERE ID=#{id} 
+	</update>
+	<select id='getUserById' resultMap='userMap'> 
+ 		SELECT <include refid='userColumns' /> 
+		FROM USER	WHERE ID = #{id} AND STATUS = 0 
+	</select>
+	<select id='getUserLogin' resultMap='userMap'> 
+ 		SELECT <include refid='userColumns' /> 
+		FROM USER	WHERE NAME = #{name} AND PWD = #{pwd} AND STATUS = 0 
+	</select>
+	<select id='getUserByName' resultMap='userMap'> 
+ 		SELECT <include refid='userColumns' /> 
+		FROM USER	WHERE NAME = #{name} AND STATUS = 0 
+	</select>
+	<select id='countAllUser' resultType='int'> 
+		SELECT count(ID) FROM USER 
+		WHERE STATUS = 0 
+		<if test='keyword  != null'>AND NAME LIKE CONCAT('%',#{keyword},'%')  </if> 
+	</select>
+	<select id='getAllUser' resultMap='userMap'> 
+ 		SELECT <include refid='userColumns' /> FROM USER 
+		WHERE STATUS = 0 
+		<if test='keyword  != null'>AND NAME LIKE CONCAT('%',#{keyword},'%')  </if> 
+		ORDER BY CREATTIME DESC 
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if> 
+	</select>
+</mapper>

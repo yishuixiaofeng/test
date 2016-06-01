@@ -1,0 +1,82 @@
+body{
+    font-family: "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.tableFilterBar{
+    margin: 15px 0;
+}
+.hide{
+    display: none;
+}
+/*让bootstrap-dialog的遮罩跟浏览器的宽度相同；避免跳动现象*/
+.bootstrap-dialog{
+    padding-right: 0!important;
+}
+/*让bootstrap-dialog出来的时候body跟浏览器的宽度相同；避免跳动现象*/
+body{
+    padding-right: 0!important;
+}
+.pointer{
+    cursor: pointer;
+}
+.input-group-addon{
+    min-width: 100px;
+}
+a{
+    cursor: pointer;
+}
+.tableToolbar{
+    margin: 15px 0;
+}
+.state-normal{
+    color: green;
+}
+.state-medium{
+    color: orange;
+}
+.state-warning{
+    color: red;
+}
+.state-error{
+    color: gray;
+}
+.extendFilterContainer{
+    margin-top: 15px;
+    margin-bottom: -15px;
+}
+.extendFilterContainer .btn{
+    margin-right: 3px;
+}
+.load{
+    width: 200px;
+    padding: 2px;
+    z-index: 99999;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:60px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    border-radius: 0;
+    -moz-border-radius:0;
+    -ms-border-radius:0;
+    -webkit-border-radius:0;
+    -o-border-radius:0;
+    -moz-transition:all .5s ease-in;
+    -webkit-transition:all .5s ease-in;
+    -o-transition:all .5s ease-in;
+    -ms-transition:all .5s ease-in;
+    transition:all .5s ease-in;
+}
+.load::before{
+    content: "数据加载中";
+}
+.loaded{
+    opacity: 0;
+}
+.bootstrap-select.form-control:not([class*="col-"]) {
+    width: auto;
+}
+
+
+

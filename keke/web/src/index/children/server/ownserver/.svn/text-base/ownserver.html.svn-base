@@ -1,0 +1,14 @@
+<script>
+    importCSS(appContextPath+"/src/index/children/server/ownserver/ownserver.css");
+    importScript(appContextPath+"/src/index/children/server/ownserver/ownserver.js");
+</script>
+<div class="row">
+    <div class="col-lg-120 tableFilterBar">
+        <form class="form-inline"  id="serverOwnserverTableFilterBar">
+            <a id="serverOwnserverSearchBtn" class="btn btn-primary searchBtn"></a>
+        </form>
+    </div>
+    <div class="col-xs-120" id="serverOwnserverTable">
+    </div>
+    <div id="serverOwnserverTablePagination"></div>
+</div>

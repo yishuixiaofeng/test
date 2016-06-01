@@ -1,0 +1,49 @@
+[{
+    "id":"1",
+    "pid":"0",
+    "name":"节点1",
+    "parentName":"",
+    "url":"1",
+    "isParent":true,
+    "icon":"1"
+},{
+    "id":"2",
+    "pid":"0",
+    "name":"节点2",
+    "parentName":"",
+    "url":"2",
+    "isParent":true,
+    "icon":"2"
+},{
+    "id":"11",
+    "pid":"1",
+    "name":"节点11",
+    "parentName":"节点1",
+    "url":"11",
+    "isParent":true,
+    "icon":"11"
+},{
+    "id":"12",
+    "pid":"1",
+    "name":"菜单管理",
+    "parentName":"节点1",
+    "url":"menu",
+    "isParent":false,
+    "icon":"12"
+},{
+    "id":"111",
+    "pid":"11",
+    "name":"权限管理",
+    "parentName":"节点11",
+    "url":"authority",
+    "isParent":false,
+    "icon":"111"
+},{
+    "id":"1111",
+    "pid":"111",
+    "name":"测试管理",
+    "parentName":"节点111",
+    "url":"1111",
+    "isParent":false,
+    "icon":"1111"
+}]

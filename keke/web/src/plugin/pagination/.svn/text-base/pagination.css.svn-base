@@ -1,0 +1,9 @@
+.pagination{
+    vertical-align:middle;
+}
+.paginationTotal{
+    vertical-align: middle;
+    display: inline-block;
+    color: #777;
+    margin-left: 1em;
+}

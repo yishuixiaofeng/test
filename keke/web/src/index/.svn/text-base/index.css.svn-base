@@ -1,0 +1,52 @@
+html,body{
+    height: 100%;
+}
+:root {
+    background:#222222;
+}
+.container-fluid{
+    height: 100%;
+}
+.firstBlock{
+    height: 60px;
+    background-color: lightgrey;
+}
+.firstBlock>div{
+    height: 100%;
+}
+.logo{
+    background-image: url("image/logo.jpg");
+    background-size: 100% 100%;
+    background-color: gray;
+}
+#headPortrait{
+    margin-top: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius:50%
+}
+.indexDropdown .btn,.indexDropdown .btn:hover{
+    padding:0;
+    background-color:transparent;
+    border: none;
+    margin-top: 18px;
+}
+.secondBlock{
+    height: calc( 100% - 60px );
+    background:#222222;
+}
+.leftTabs{
+    width: 100%;
+}
+#indexMainContent{
+    background-color: #ffffff;
+    min-height: 100%;
+}
+.pagePanel{
+    width: 98%;
+    margin: auto;
+}
+.breadcrumbPanel{
+    width: 98%;
+    border: 1px solid #D3D3D3;
+}

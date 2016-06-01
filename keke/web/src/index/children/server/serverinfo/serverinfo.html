@@ -1,0 +1,99 @@
+<script>
+    importCSS(appContextPath+"/src/index/children/server/serverinfo/serverinfo.css");
+    importScript(appContextPath+"/src/index/children/server/serverinfo/serverinfo.js");
+</script>
+<div class="row">
+    <div class="col-lg-120 tableFilterBar">
+        <form class="form-inline"  id="serverServerinfoTableFilterBar">
+            <div class="form-group">
+                <label>关键词:</label>
+                <input name="keyword" type="text" class="form-control" placeholder="关键词">
+            </div>
+            <a id="serverSearchBtn" class="btn btn-primary searchBtn"></a>
+            <a class="btn btn-primary resetSearch"></a>
+        </form>
+        <div class="extendFilterContainer">
+            <a class="btn btn-default" id="serverSearchUndistributed">未分配专员的服务器列表</a>
+        </div>
+    </div>
+    <div class="col-xs-120 tableToolbar">
+        <!--data-operate是为了说明这是保存还是修改操作的,结合模态框中的.modalHeaderText来动态的修改模态框的标题为添加还是修改-->
+        <button type="button" class="btn btn-default" id="serverServerinfoTableAdd" data-toggle="modal" data-operate="add" data-target="#serverServerinfoTableModal">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <button type="button" class="btn btn-default" id="serverServerinfoTableUpdate" data-toggle="modal" data-operate="update" data-target="#serverServerinfoTableModal">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <button type="button" class="btn btn-default" id="serverServerinfoTableDelete" data-operate="delete">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span class="spinning fa fa-spinner fa-spin hide"></span>
+        </button>
+    </div>
+    <div class="col-xs-120" id="serverServerinfoTable">
+    </div>
+    <div id="serverServerinfoTablePagination">
+
+    </div>
+    <div class="modal fade" id="serverServerinfoTableModal" data-backdrop="false">
+        <div class="modal-dialog dragable" data-handle=".modal-header">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <span class="modalHeaderText"></span>
+                </div>
+                <div class="modal-body">
+                    <form id="serverServerinfoTableForm"  method="post" class="form-horizontal" action="">
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">服务器名称</span>
+                                    <input type="hidden" name="id">
+                                    <input type="text" name="name" class="form-control" placeholder="请输入服务器名称">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">服务器地址</span>
+                                    <input type="text" name="ip" class="form-control" placeholder="请输入服务器地址">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">负责人</span>
+                                    <input type="text" name="administrator" class="form-control" placeholder="负责人">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">负责人电话</span>
+                                    <input type="text" name="administrator_phone" class="form-control" placeholder="负责人电话">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">描述信息</span>
+                                    <input type="text" name="description" class="form-control" placeholder="负责人电话">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="serverServerinfoTableBtn" class="btn btn-primary submitBtn">
+                        <span>确定</span>
+                        <span class="spinning fa fa-spinner fa-spin hide"></span>
+                    </button>
+                    <button type="button" class="btn btn-default " data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

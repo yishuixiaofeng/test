@@ -1,0 +1,305 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/projects/!svn/ver/56617/master/benguo.tyfo/order/web/WEB-INF/lib
+END
+mysql-connector-java-5.1.13-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/mysql-connector-java-5.1.13-bin.jar
+END
+fastjson-1.1.23.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/fastjson-1.1.23.jar
+END
+gson-1.7.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/gson-1.7.1.jar
+END
+spring-expression-4.0.0.M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-expression-4.0.0.M2.jar
+END
+slf4j-api-1.7.21.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/projects/!svn/ver/56617/master/benguo.tyfo/order/web/WEB-INF/lib/slf4j-api-1.7.21.jar
+END
+jackson-mapper-asl-1.9.13.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar
+END
+spring-context-support-4.0.7.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/projects/!svn/ver/56617/master/benguo.tyfo/order/web/WEB-INF/lib/spring-context-support-4.0.7.RELEASE.jar
+END
+jackson-core-asl-1.9.13.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jackson-core-asl-1.9.13.jar
+END
+jsr311-api-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jsr311-api-1.1.1.jar
+END
+commons-collections-3.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/commons-collections-3.2.1.jar
+END
+spring-aop-4.0.0.M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-aop-4.0.0.M2.jar
+END
+json-lib-2.2.3-jdk15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/json-lib-2.2.3-jdk15.jar
+END
+spring-test-4.0.0.M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-test-4.0.0.M2.jar
+END
+velocity-tools-2.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/velocity-tools-2.0.jar
+END
+spring-data-redis-1.6.0.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/projects/!svn/ver/56084/master/benguo.tyfo/order/web/WEB-INF/lib/spring-data-redis-1.6.0.RELEASE.jar
+END
+standard.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/standard.jar
+END
+jedis-2.5.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/projects/!svn/ver/56084/master/benguo.tyfo/order/web/WEB-INF/lib/jedis-2.5.2.jar
+END
+jackson-mapper-asl-1.9.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jackson-mapper-asl-1.9.7.jar
+END
+log4j-1.2.16.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/log4j-1.2.16.jar
+END
+jersey-client-1.18.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jersey-client-1.18.jar
+END
+spring-core-4.0.0.M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-core-4.0.0.M2.jar
+END
+velocity-tools-generic-2.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/velocity-tools-generic-2.0.jar
+END
+aopalliance-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/aopalliance-1.0.jar
+END
+mybatis-spring-1.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/mybatis-spring-1.2.1.jar
+END
+jackson-core-asl-1.9.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jackson-core-asl-1.9.7.jar
+END
+spring-tx-4.0.0.M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-tx-4.0.0.M2.jar
+END
+mybatis-3.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/mybatis-3.1.1.jar
+END
+jstl-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jstl-1.2.jar
+END
+jersey-core-1.18.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jersey-core-1.18.jar
+END
+commons-cli-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/commons-cli-1.0.jar
+END
+spring-jdbc-4.0.0.M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-jdbc-4.0.0.M2.jar
+END
+commons-digester.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/commons-digester.jar
+END
+jackson-mapper-lgpl-1.9.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jackson-mapper-lgpl-1.9.7.jar
+END
+ezmorph-1.0.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/ezmorph-1.0.6.jar
+END
+jackson-core-lgpl-1.9.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/jackson-core-lgpl-1.9.7.jar
+END
+servlet-2.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/servlet-2.5.jar
+END
+commons-codec-1.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/commons-codec-1.5.jar
+END
+junit.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/junit.jar
+END
+commons-logging-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/commons-logging-1.1.1.jar
+END
+commons-lang-2.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/commons-lang-2.5.jar
+END
+spring-web-3.2.3.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-web-3.2.3.RELEASE.jar
+END
+spring-context-4.0.0.M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-context-4.0.0.M2.jar
+END
+quartz-1.8.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/projects/!svn/ver/56617/master/benguo.tyfo/order/web/WEB-INF/lib/quartz-1.8.6.jar
+END
+commons-beanutils-1.8.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/commons-beanutils-1.8.0.jar
+END
+velocity-1.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/velocity-1.7.jar
+END
+velocity-tools-view-2.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/velocity-tools-view-2.0.jar
+END
+spring-beans-4.0.0.M2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-beans-4.0.0.M2.jar
+END
+cglib-nodep-2.1_3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/cglib-nodep-2.1_3.jar
+END
+commons-pool2-2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/!svn/ver/56084/master/benguo.tyfo/order/web/WEB-INF/lib/commons-pool2-2.2.jar
+END
+spring-webmvc-3.2.3.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/projects/!svn/ver/55847/master/benguo.tyfo/order/web/WEB-INF/lib/spring-webmvc-3.2.3.RELEASE.jar
+END

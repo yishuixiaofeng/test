@@ -1,0 +1,32 @@
+.datagridPanel table{
+    margin-bottom: 0;
+    table-layout:fixed;
+}
+.datagridPanel-panelTitle{
+    border-bottom: 1px solid #dddddd;
+    background-color: linen;
+}
+.datagridPanel-panelTitleInner{
+    padding: 8px;
+    width: 97%;
+    width: calc( 100% - 20px );
+    display: inline-block;
+}
+.datagridPanel-panelTitle::after{
+    content: "∨";
+}
+.datagridPanel-close + table{
+    display: none;
+}
+.datagridPanel-close::after{
+    content: "<";
+}
+.table-striped > tbody > tr.datagridPanel-active:nth-of-type(n){
+    background-color: #E5E5E5;
+}
+.emptyText{
+    padding: 8px;
+    background-color:rgb(249, 249,249);
+    border:solid rgb(221,221,221);
+    border-width: 0 1px 1px;
+}

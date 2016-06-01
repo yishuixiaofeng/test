@@ -1,0 +1,89 @@
+<script>
+    importCSS(appContextPath+"/src/index/children/custom/list/list.css");
+    importScript(appContextPath+"/src/index/children/custom/list/list.js");
+</script>
+<div class="row">
+    <div class="col-lg-120 tableFilterBar">
+        <form class="form-inline"  id="customListTableFilterBar">
+            <div class="form-group">
+                <label>关键词:</label>
+                <input name="keyword" type="text" class="form-control" placeholder="关键词">
+            </div>
+            <div class="form-group">
+                <label>所属服务器:</label>
+                <select id="customListTableFilterBarSelectServer" class="form-control" placeholder="所属服务器"></select>
+            </div>
+            <div class="form-group">
+                <label>信息筛选员:</label>
+                <select id="customListTableFilterBarSelectUser" class="form-control" placeholder="客服专员">
+                    <option value="0" selected>全部</option>
+                </select>
+            </div>
+            <a id="customListSearchBtn" class="btn btn-primary searchBtn"></a>
+            <a class="btn btn-primary resetSearch"></a>
+            <a class="btn btn-primary updateSearch hide"></a>
+        </form>
+        <span id="serverEmpty" class="help-block hide"></span>
+    </div>
+    <div class="col-xs-120" id="customListTable">
+    </div>
+    <div id="customListTablePagination">
+
+    </div>
+    <div class="modal fade" id="customListTableDetailModal" data-backdrop="false">
+        <div class="modal-dialog modal-lg dragable" data-handle=".modal-header">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <span>详细信息</span>
+                </div>
+                <div class="modal-body">
+                    <ul role="tablist" class="nav nav-tabs">
+                        <li class="active" role="presentation"><a  data-toggle="tab" role="tab" href="#customListTableDetailModalTyfoVirtualUserListTabPanel">设备列表</a></li>
+                        <li role="presentation" class=""><a  data-toggle="tab" role="tab" href="#customListTableDetailModalUserinfoTabPanel">所属信息筛选员</a></li>
+                        <li role="presentation" class=""><a  data-toggle="tab" role="tab" href="#customListTableDetailModalFuncGroupUsedTabPanel">套餐使用情况</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div  id="customListTableDetailModalTyfoVirtualUserListTabPanel" class="tab-pane fade active in" role="tabpanel">
+                            <div id="customListTableDetailModalTyfoVirtualUserListTable"></div>
+                            <div id="customListTableDetailModalTyfoVirtualUserListTablePagination"></div>
+                        </div>
+                        <div id="customListTableDetailModalFuncGroupUsedTabPanel" class="tab-pane fade" role="tabpanel">
+                        </div>
+                        <div id="customListTableDetailModalUserinfoTabPanel" class="tab-pane fade" role="tabpanel">
+                            <form id="customListTableDetailModalUserinfoForm"  method="post" class="form-horizontal" action="">
+                                <div class="form-group">
+                                    <div class="col-xs-60">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">筛选员名称</span>
+                                            <input type="text" name="username" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-60">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">真实名称</span>
+                                            <input type="text" name="realname" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-60">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">手机号码</span>
+                                            <input type="text" name="telephone" class="form-control" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default " data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

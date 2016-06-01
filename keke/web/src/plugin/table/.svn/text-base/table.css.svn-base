@@ -1,0 +1,9 @@
+.table > tbody > tr.activeTr{
+    background-color:#E5E5E5;
+}
+.hide{
+    display: none;
+}
+.pointer{
+    cursor: pointer;
+}

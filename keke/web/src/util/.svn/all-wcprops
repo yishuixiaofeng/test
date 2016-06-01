@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/projects/!svn/ver/57189/master/benguo.tyfo/order/web/src/util
+END
+beforeSendAndAfterReceive.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/projects/!svn/ver/56777/master/benguo.tyfo/order/web/src/util/beforeSendAndAfterReceive.js
+END
+dateFormat.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/projects/!svn/ver/56497/master/benguo.tyfo/order/web/src/util/dateFormat.js
+END
+datasToFlow.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/projects/!svn/ver/56372/master/benguo.tyfo/order/web/src/util/datasToFlow.js
+END
+ajaxSuccessCallback.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/!svn/ver/57358/master/benguo.tyfo/order/web/src/util/ajaxSuccessCallback.js
+END
+fillForm.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/projects/!svn/ver/56777/master/benguo.tyfo/order/web/src/util/fillForm.js
+END
+clearForm.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/projects/!svn/ver/56777/master/benguo.tyfo/order/web/src/util/clearForm.js
+END
+formValidationIsValid.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/!svn/ver/56421/master/benguo.tyfo/order/web/src/util/formValidationIsValid.js
+END
+serializeForm.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/projects/!svn/ver/56421/master/benguo.tyfo/order/web/src/util/serializeForm.js
+END
+importScript.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/projects/!svn/ver/56372/master/benguo.tyfo/order/web/src/util/importScript.js
+END
+generateLeftTabs.js
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/projects/!svn/ver/56422/master/benguo.tyfo/order/web/src/util/generateLeftTabs.js
+END
+dragable.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/projects/!svn/ver/56561/master/benguo.tyfo/order/web/src/util/dragable.js
+END
+enterForm.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/projects/!svn/ver/57189/master/benguo.tyfo/order/web/src/util/enterForm.js
+END
+importCSS.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/projects/!svn/ver/56372/master/benguo.tyfo/order/web/src/util/importCSS.js
+END

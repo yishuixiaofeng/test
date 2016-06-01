@@ -1,0 +1,152 @@
+<script>
+    importCSS(appContextPath+"/src/index/children/server/assignserver/assignserver.css");
+    importScript(appContextPath+"/src/index/children/server/assignserver/assignserver.js");
+</script>
+<div class="row">
+    <div class="col-lg-120 tableFilterBar">
+        <form class="form-inline"  id="serverAssignserverTableFilterBar">
+            <div class="form-group">
+                <label>关键词:</label>
+                <input name="keyword" type="text" class="form-control" placeholder="关键词">
+            </div>
+            <a id="assignserverSearchBtn" class="btn btn-primary searchBtn"></a>
+            <a class="btn btn-primary resetSearch"></a>
+        </form>
+    </div>
+    <div class="col-xs-120 tableToolbar">
+        <!--data-operate是为了说明这是保存还是修改操作的,结合模态框中的.modalHeaderText来动态的修改模态框的标题为添加还是修改-->
+        <button type="button" class="btn btn-default" id="serverAssignserverTableAdd" data-toggle="modal" data-operate="add" data-target="#serverAssignserverTableModal">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <button type="button" class="btn btn-default" id="serverAssignserverTableUpdate" data-toggle="modal" data-operate="update" data-target="#serverAssignserverTableModal">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <button type="button" class="btn btn-default" id="serverAssignserverTableDelete" data-operate="delete">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span class="spinning fa fa-spinner fa-spin hide"></span>
+        </button>
+    </div>
+    <div class="col-xs-120" id="serverAssignserverTable">
+    </div>
+    <div id="serverAssignserverTablePagination">
+
+    </div>
+    <div class="modal fade" id="serverAssignserverTableModal" data-backdrop="false">
+        <div class="modal-dialog dragable" data-handle=".modal-header">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <span class="modalHeaderText"></span>
+                </div>
+                <div class="modal-body">
+                    <form id="serverAssignserverTableForm"  method="post" class="form-horizontal" action="">
+                        <div class="pageTurningContainer">
+                            <div class="pageTurningPanelContainer">
+                                <div class="pageTurningPanel pageTurningActive">
+                                    <div class="form-group">
+                                        <div class="col-xs-120">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">用户</span>
+                                                <input type="hidden" name="id">
+                                                <input type="hidden" name="f_user_id">
+                                                <input type="text" name="f_user_name" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="serverAssignserverSelectUserTableContainer">
+                                        <div class="col-xs-120">
+                                            <h5>点击选择用户</h5>
+                                            <div id="serverAssignserverSelectUserTable">
+                                            </div>
+                                            <a id="serverAssignserverSelectUserSearchBtn" class="btn btn-primary btn-xs">刷新列表</a>
+                                            <div id="serverAssignserverSelectUserTablePagination">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pageTurningPanel pageTurningHidden">
+                                    <div class="form-group">
+                                        <div class="col-xs-120">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">服务器名称</span>
+                                                <input type="hidden" name="f_server_id">
+                                                <input type="text" name="f_server_name" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-120">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">服务器ip</span>
+                                                <input type="text" name="f_server_ip" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-120">
+                                            <h5>点击选择服务器</h5>
+                                            <div id="serverAssignserverSelectServerTable">
+                                            </div>
+                                            <a id="serverAssignserverSelectServerSearchBtn" class="btn btn-primary btn-xs">刷新列表</a>
+                                            <div id="serverAssignserverSelectServerTablePagination">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pageTurningPanel pageTurningHidden">
+                                    <div class="form-group">
+                                        <div class="col-xs-120">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">筛选员id</span>
+                                                <input type="text" name="f_id" class="form-control"  readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-120">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">筛选员名称</span>
+                                                <input type="text" name="f_name" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-120">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">单位名称</span>
+                                                <input type="text" name="enterprisename" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-120">
+                                            <h5>点击选择筛选员</h5>
+                                            <div id="serverAssignserverSelectUserIdentifyTable">
+                                            </div>
+                                            <a id="serverAssignserverSelectUserIdentifySearchBtn" class="btn btn-primary btn-xs">刷新列表</a>
+                                            <div id="serverAssignserverSelectUserIdentifyTablePagination">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <nav>
+                                <ul class="pager pageTurningPager">
+                                    <li class="previous disabled"><a><span aria-hidden="true">&larr;</span> <span>上一步</span></a></li>
+                                    <li class="next"><a><span>下一步</span> <span aria-hidden="true">&rarr;</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="serverAssignserverTableBtn" class="btn btn-primary submitBtn">
+                        <span>确定</span>
+                        <span class="spinning fa fa-spinner fa-spin hide"></span>
+                    </button>
+                    <button type="button" class="btn btn-default " data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

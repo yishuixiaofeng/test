@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- Spring整合myBatis后，这个配置文件基本可以不要了 -->
+	<!-- 设置外部配置文件 -->
+	<!-- 设置类别名 -->
+	<typeAliases>
+	    <typeAlias type="benguo.tyfo.order.bean.user.RoleMenus" alias="RoleMenus" />
+	    <typeAlias type="benguo.tyfo.order.bean.user.UserGroups" alias="UserGroups" />
+		<typeAlias type="benguo.tyfo.order.bean.user.User" alias="User" />
+		<typeAlias type="benguo.tyfo.order.bean.sys.SysMenu" alias="SysMenu" />
+		<typeAlias type="benguo.tyfo.order.bean.sys.SysParam" alias="SysParam" />
+		<typeAlias type="benguo.tyfo.order.bean.user.Role" alias="Role" />
+		<typeAlias type="benguo.tyfo.order.bean.user.Server" alias="Server" />
+		<typeAlias type="benguo.tyfo.order.bean.user.UserIdentify" alias="UserIdentify" />
+		<typeAlias type="benguo.tyfo.order.bean.user.UserRoles" alias="UserRoles" />
+		<typeAlias type="benguo.tyfo.order.bean.user.UserServers" alias="UserServers" />
+		
+		<!-- tyfo-->
+		<typeAlias type="benguo.tyfo.order.bean.tyfo.OwnUsers" alias="OwnUsers" />
+		<typeAlias type="benguo.tyfo.order.bean.tyfo.TyfoUserRoles" alias="TyfoUserRoles" />
+		<typeAlias type="benguo.tyfo.order.bean.tyfo.Userinfo" alias="Userinfo" />
+		<typeAlias type="benguo.tyfo.order.bean.tyfo.VirtualUser" alias="VirtualUser" />
+	</typeAliases>
+	<!-- 设置数据库连接环境 -->
+	<!-- 映射文件 -->
+	<mappers>
+	    <mapper resource="benguo/tyfo/order/mapper/user/roleMenusMapper.xml" />
+	    <mapper resource="benguo/tyfo/order/mapper/user/userGroupsMapper.xml" />
+	    <mapper resource="benguo/tyfo/order/mapper/sys/sysMenuMapper.xml" />
+	    <mapper resource="benguo/tyfo/order/mapper/sys/sysParamMapper.xml" />
+	    <mapper resource="benguo/tyfo/order/mapper/user/userRolesMapper.xml" />
+	    <mapper resource="benguo/tyfo/order/mapper/user/userIdentifyMapper.xml" />
+		<mapper resource="benguo/tyfo/order/mapper/user/userMapper.xml" />
+		<mapper resource="benguo/tyfo/order/mapper/user/roleMapper.xml" />
+		<mapper resource="benguo/tyfo/order/mapper/user/serverMapper.xml" />
+		<mapper resource="benguo/tyfo/order/mapper/user/userServersMapper.xml" />
+		
+		<!-- tyfo -->
+		<mapper resource="benguo/tyfo/order/mapper/tyfo/ownUsersMapper.xml" />
+		<mapper resource="benguo/tyfo/order/mapper/tyfo/tyfoUserRolesMapper.xml" />
+		<mapper resource="benguo/tyfo/order/mapper/tyfo/userinfoMapper.xml" />
+		<mapper resource="benguo/tyfo/order/mapper/tyfo/virtualUserMapper.xml" />
+	</mappers>
+</configuration>

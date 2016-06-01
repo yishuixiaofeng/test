@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="user">
+	<resultMap id="userMap" type="User">
+		<result column="ID" property="id" />
+		<result column="USERNAME" property="username" />
+		<result column="PWDHASH" property="pwdhash" />
+		<result column="NAME" property="name" />
+		<result column="PHONE" property="phone" />
+		<result column="DEPARTMENT" property="department" />
+		<result column="DESCRIPTION" property="description" />
+		<result column="STATUS" property="status" />
+		<result column="CREATTIME" property="creattime" />
+		<result column="OPERATOR_ID" property="operator_id" />
+		<result column="OPERATE_TIME" property="operate_time" />
+		<result column="F_ROLE_ID" property="f_role_id" />
+		<result column="F_ROLE_NAME" property="f_role_name" />
+	</resultMap>
+
+	<sql id="userColumns">
+		U.ID,
+		U.USERNAME,
+		U.PWDHASH,
+		U.NAME,
+		U.PHONE,
+		U.DEPARTMENT,
+		U.DESCRIPTION,
+		U.STATUS,
+		U.CREATTIME,
+		U.OPERATOR_ID,
+		U.OPERATE_TIME,
+		R.ID F_ROLE_ID,
+		R.NAME F_ROLE_NAME
+	</sql>
+
+	<select id="findUserLogin" resultMap="userMap">
+		SELECT
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+		WHERE
+		U.USERNAME=#{username} AND U.PWDHASH=#{pwdhash};
+	</select>
+	<select id="findAllUsers" resultMap="userMap">
+		SELECT
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	;
+	</select>
+	<select id="findUserById" resultMap="userMap">
+		SELECT
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+		WHERE U.ID = #{id};
+	</select>
+
+	<select id="findUserByName" resultMap="userMap">
+		SELECT
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+		WHERE  U.STATUS= 0 AND UR.STATUS=0  AND R.STATUS=0
+		AND U.USERNAME=#{username} ;
+	</select>
+	<insert id="insertUser" parameterType="User">
+		<selectKey resultType="int" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+		INSERT INTO USER(USERNAME,
+		PWDHASH,NAME,PHONE,DEPARTMENT,DESCRIPTION,STATUS,CREATTIME,OPERATOR_ID,OPERATE_TIME)
+		VALUES(#{username},#{pwdhash},#{name},#{phone},#{department},#{description},#{status},#{creattime},#{operator_id},#{operate_time});
+	</insert>
+
+	<update id="updateUserById" parameterType="User">
+		UPDATE USER
+		<set>
+			<if test="username != null">USERNAME=#{username},</if>
+			<if test="pwdhash != null">PWDHASH=#{pwdhash},</if>
+			<if test="name != null">NAME=#{name},</if>
+			<if test="phone != null">PHONE=#{phone},</if>
+			<if test="department != null">DEPARTMENT=#{department},</if>
+			<if test="description != null">DESCRIPTION=#{description},</if>
+			<if test="status &gt; 0">STATUS=#{status},</if>
+			<if test="creattime != null">CREATTIME=#{creattime},</if>
+			<if test="operator_id &gt; 0">OPERATOR_ID=#{operator_id},</if>
+			<if test="operate_time != null">OPERATE_TIME=#{operate_time} </if>
+		</set>
+		WHERE ID=#{id}
+	</update>
+
+	<update id="updateUserPwdById" parameterType="hashmap">
+		UPDATE USER
+		<set>
+			<if test="pwdhash != null">PWDHASH=#{pwdhash},</if>
+			<if test="operator_id &gt; 0">OPERATOR_ID=#{operator_id},</if>
+			<if test="operate_time != null">OPERATE_TIME=#{operate_time} </if>
+		</set>
+		WHERE ID=#{id}
+	</update>
+
+	<update id="updateUserStatusById" parameterType="hashmap">
+		UPDATE USER
+		<set>
+			<if test="status != null">STATUS=#{status},</if>
+			<if test="operator_id &gt; 0">OPERATOR_ID=#{operator_id},</if>
+			<if test="operate_time != null">OPERATE_TIME=#{operate_time} </if>
+		</set>
+		WHERE ID=#{id}
+	</update>
+
+	<select id="countAllUsers" resultType="int">
+		SELECT count(u.ID) 
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID
+		WHERE U.STATUS = 0 and ur.status = 0 and r.status = 0;
+	</select>
+
+	<select id="findPageUsers" resultMap="userMap">
+		SELECT
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID		
+		WHERE U.STATUS = 0 and ur.status = 0 and r.status = 0 
+		<if test='keyword  != null'>AND U.NAME LIKE CONCAT('%',#{keyword},'%')  </if>
+		ORDER BY U.CREATTIME DESC
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if>
+	</select>
+
+	<select id="countUsersAndUserRoles" resultType="int">
+		SELECT count(U.ID) FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID		
+		 WHERE U.STATUS = 0 AND UR.STATUS = 0 AND R.STATUS = 0  
+		 <if test="f_role_id !=null and f_role_id >0">
+		 and UR.F_ROLE_ID=#{f_role_id}
+		 </if>
+		<if test="keyword != null">
+			AND ( U.USERNAME LIKE CONCAT('%',#{keyword},'%') OR U.NAME LIKE
+			CONCAT('%',#{keyword},'%')
+			OR U.PHONE LIKE CONCAT('%',#{keyword},'%') OR U.DEPARTMENT LIKE
+			CONCAT('%',#{keyword},'%'))
+		</if>
+		;
+	</select>
+
+	<select id="countUsersBykeyword" resultType="int">
+		SELECT count(U.ID) 
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+         WHERE U.STATUS = 0 AND UR.STATUS = 0 AND R.STATUS = 0 
+		<if test="keyword != null">
+			AND ( U.USERNAME LIKE CONCAT('%',#{keyword},'%') OR U.NAME
+			LIKE CONCAT('%',#{keyword},'%')
+			OR U.PHONE LIKE CONCAT('%',#{keyword},'%') OR U.DEPARTMENT LIKE
+			CONCAT('%',#{keyword},'%') )
+		</if>
+		;
+	</select>
+
+	<select id="findPageUsersBykeyword" resultMap="userMap">
+		SELECT
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+	    WHERE U.STATUS = 0 AND UR.STATUS = 0 AND R.STATUS = 0 
+		<if test="keyword != null">
+			AND ( U.USERNAME LIKE CONCAT('%',#{keyword},'%') OR U.NAME LIKE
+			CONCAT('%',#{keyword},'%')
+			OR U.PHONE LIKE CONCAT('%',#{keyword},'%') OR U.DEPARTMENT LIKE
+			CONCAT('%',#{keyword},'%') )
+		</if>
+		ORDER BY U.CREATTIME DESC
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if>
+	</select>
+	
+	<select id="getPageUsersAndUserRole" resultMap="userMap">
+		SELECT 
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+		 WHERE U.STATUS = 0 AND UR.STATUS = 0 AND R.STATUS = 0  
+		 <if test="f_role_id !=null and f_role_id >0">
+		 and UR.F_ROLE_ID=#{f_role_id}
+		 </if>
+		<if test="keyword != null">
+			AND ( U.USERNAME LIKE CONCAT('%',#{keyword},'%') OR U.NAME LIKE
+			CONCAT('%',#{keyword},'%')
+			OR U.PHONE LIKE CONCAT('%',#{keyword},'%') OR U.DEPARTMENT LIKE
+			CONCAT('%',#{keyword},'%'))
+		</if>
+		ORDER BY U.CREATTIME DESC
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if>
+	</select>
+
+	<select id="countUsersInUserGroups" resultType="int">
+		SELECT COUNT(U.ID)
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+		WHERE U.STATUS = 0 AND UR.STATUS = 0 AND R.STATUS = 0  
+		AND U.ID 
+		<if test="inFlag != null and inFlag >0 "> NOT </if>
+		IN (SELECT DISTINCT CREATOR_ID FROM USER_GROUPS WHERE STATUS = 0  
+			<if test="creator_id != null and creator_id>0">
+			AND creator_id =#{creator_id}
+			</if>
+		)
+		<if test="keyword != null">
+			AND ( U.USERNAME LIKE CONCAT('%',#{keyword},'%') OR U.NAME LIKE
+			CONCAT('%',#{keyword},'%')
+			OR U.PHONE LIKE CONCAT('%',#{keyword},'%') OR U.DEPARTMENT LIKE
+			CONCAT('%',#{keyword},'%'))
+		</if>
+		
+	</select>
+	<select id="getUserInUserGroups" resultMap="userMap">
+		SELECT
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID
+		WHERE U.STATUS = 0 AND UR.STATUS = 0 AND R.STATUS = 0 
+		AND U.ID 
+		<if test="inFlag != null and inFlag >0 "> NOT </if>
+		IN (SELECT DISTINCT CREATOR_ID FROM USER_GROUPS WHERE STATUS = 0  
+			<if test="creator_id != null and creator_id>0">
+			AND creator_id =#{creator_id}
+			</if>
+		)
+		<if test="keyword != null">
+			AND ( U.USERNAME LIKE CONCAT('%',#{keyword},'%') OR U.NAME LIKE
+			CONCAT('%',#{keyword},'%')
+			OR U.PHONE LIKE CONCAT('%',#{keyword},'%') OR U.DEPARTMENT LIKE
+			CONCAT('%',#{keyword},'%'))
+		</if>
+		ORDER BY U.CREATTIME DESC
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if>
+	</select>
+	
+		<select id="countUserListNotInUserGroups" resultType="int">
+		SELECT count(u.ID) 
+	    FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+		 WHERE U.STATUS = 0 AND UR.STATUS = 0 AND R.STATUS = 0  
+		 <if test="f_role_id !=null and f_role_id >0">
+		 and UR.F_ROLE_ID=#{f_role_id}
+		 </if>
+		 AND U.ID 
+		<if test="inFlag != null and inFlag >0 "> NOT </if>
+		IN(SELECT DISTINCT F_USER_ID FROM USER_GROUPS WHERE STATUS=0)
+		<if test="keyword != null">
+			AND ( U.USERNAME LIKE CONCAT('%',#{keyword},'%') OR U.NAME LIKE
+			CONCAT('%',#{keyword},'%')
+			OR U.PHONE LIKE CONCAT('%',#{keyword},'%') OR U.DEPARTMENT LIKE
+			CONCAT('%',#{keyword},'%'))
+		</if>
+		;
+	</select>
+	
+	<select id="getUserListNotInUserGroups" resultMap="userMap">
+		SELECT 
+		<include refid="userColumns" />
+		FROM USER U
+		LEFT JOIN USER_ROLES UR ON U.ID = UR.F_USER_ID	
+		LEFT JOIN ROLE R ON R.ID = UR.F_ROLE_ID	
+		 WHERE U.STATUS = 0 AND UR.STATUS = 0 AND R.STATUS = 0  
+		 <if test="f_role_id !=null and f_role_id >0">
+		 and UR.F_ROLE_ID=#{f_role_id}
+		 </if>
+		 AND U.ID 
+		<if test="inFlag != null and inFlag >0 "> NOT </if>
+		IN(SELECT DISTINCT F_USER_ID FROM USER_GROUPS WHERE STATUS=0)
+		<if test="keyword != null">
+			AND ( U.USERNAME LIKE CONCAT('%',#{keyword},'%') OR U.NAME LIKE
+			CONCAT('%',#{keyword},'%')
+			OR U.PHONE LIKE CONCAT('%',#{keyword},'%') OR U.DEPARTMENT LIKE
+			CONCAT('%',#{keyword},'%'))
+		</if>
+		ORDER BY U.CREATTIME DESC
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if>
+	</select>
+
+</mapper>

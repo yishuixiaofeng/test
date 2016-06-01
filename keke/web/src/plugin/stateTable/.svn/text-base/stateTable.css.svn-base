@@ -1,0 +1,26 @@
+.stateTable{
+    margin-bottom: 0;
+    table-layout:fixed;
+}
+.stateTable th,.stateTable td{
+    text-align:center;
+}
+.stateTable > thead > tr > th,.stateTable > tbody > tr > th{
+    vertical-align: middle;
+}
+.stateTable-cephalic{
+    font-size: 1em;
+    width: 10em;
+}
+.stateTable-cephalic div {
+    display: inline-block;
+    margin: auto;
+    width: 60%;
+}
+.stateTable-cephalic span:first-child{
+    float: right;
+}
+.stateTable-cephalic span:last-child{
+    float: left;
+    clear: both;
+}

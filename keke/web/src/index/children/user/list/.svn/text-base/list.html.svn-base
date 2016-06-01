@@ -1,0 +1,108 @@
+<script>
+    importCSS(appContextPath+"/src/index/children/user/list/list.css");
+    importScript(appContextPath+"/src/index/children/user/list/list.js");
+</script>
+<div class="row">
+    <div class="col-lg-120 tableFilterBar">
+        <form class="form-inline"  id="userListTableFilterBar">
+            <div class="form-group">
+                <label>关键词:</label>
+                <input name="keyword" type="text" class="form-control" placeholder="关键词">
+            </div>
+            <a id="userSearchBtn" class="btn btn-primary searchBtn"></a>
+            <a class="btn btn-primary resetSearch"></a>
+            <a class="btn btn-primary updateSearch hide"></a>
+        </form>
+        <div id="userListgetPageUsersAndUserRoleSelectContainer" class="extendFilterContainer">
+        </div>
+    </div>
+    <div class="col-xs-120 tableToolbar">
+        <!--data-operate是为了说明这是保存还是修改操作的,结合模态框中的.modalHeaderText来动态的修改模态框的标题为添加还是修改-->
+        <button type="button" class="btn btn-default" id="userListTableAdd" data-toggle="modal" data-operate="add" data-target="#userListTableModal">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <button type="button" class="btn btn-default" id="userListTableUpdate" data-toggle="modal" data-operate="update" data-target="#userListTableModal">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <button type="button" class="btn btn-default" id="userListTableDelete" data-operate="delete">
+            <span class="glyphicon glyphicon-trash"></span>
+            <span class="spinning fa fa-spinner fa-spin hide"></span>
+        </button>
+    </div>
+    <div class="col-xs-120" id="userListTable">
+    </div>
+    <div id="userListTablePagination">
+
+    </div>
+    <div class="modal fade" id="userListTableModal" data-backdrop="false">
+        <div class="modal-dialog dragable" data-handle=".modal-header">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <span class="modalHeaderText"></span>
+                </div>
+                <div class="modal-body">
+                    <form id="userListTableForm"  method="post" class="form-horizontal" action="">
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">用户名</span>
+                                    <input type="hidden" name="id">
+                                    <input type="text" name="username" class="form-control" placeholder="请输入用户名">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">角色</span>
+                                    <select name="f_role_id" id="userListFormGetPageUsersAndUserRoleSelect" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">真实姓名</span>
+                                    <input type="text" name="name" class="form-control" placeholder="请输入真实姓名">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">手机号</span>
+                                    <input type="text" name="phone" class="form-control" placeholder="请输入手机号">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">部门名称</span>
+                                    <input type="text" name="department" class="form-control" placeholder="请输入部门名称">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-10 col-xs-90">
+                                <div class="input-group">
+                                    <span class="input-group-addon">描述信息</span>
+                                    <input type="text" name="description" class="form-control" placeholder="请输入描述信息">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="userListTableBtn" class="btn btn-primary submitBtn">
+                        <span>确定</span>
+                        <span class="spinning fa fa-spinner fa-spin hide"></span>
+                    </button>
+                    <button type="button" class="btn btn-default " data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

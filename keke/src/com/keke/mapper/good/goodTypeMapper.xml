@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+ <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN' 'http://mybatis.org/dtd/mybatis-3-mapper.dtd'> 
+<mapper namespace='goodType'> 
+	<resultMap id='goodTypeMap' type='GoodType'> 
+ 		<result column='ID' property='id' /> 
+		<result column='F_PARENT_ID' property='f_prent_id' /> 
+		<result column='NAME' property='name' /> 
+		<result column='STATUS' property='status' /> 
+		<result column='CREATTIME' property='creattime' /> 
+	</resultMap> 
+	<sql id='goodTypeColumns' > 
+ 		ID,
+		F_PARENT_ID,
+		NAME,
+		STATUS,
+		CREATTIME
+	</sql>
+	<insert id='insertGoodType' parameterType='GoodType'> 
+ 		<selectKey resultType='int' order='AFTER' keyProperty='id'> 
+ 			SELECT LAST_INSERT_ID() AS ID 
+		</selectKey> 
+		INSERT INTO GOOD_TYPE(F_PARENT_ID,NAME,STATUS,CREATTIME) 
+		VALUES(#{f_prent_id},#{name},#{status},#{creattime}); 
+	</insert> 
+	<update id='updateGoodTypeById' parameterType='GoodType'> 
+ 		UPDATE GOOD_TYPE 
+		<set>
+			<if test='f_prent_id != null'>F_PARENT_ID=#{f_prent_id},</if>
+			<if test='name != null'>NAME=#{name},</if>
+			<if test='status != null'>STATUS=#{status},</if>
+			<if test='creattime != null'>CREATTIME=#{creattime}</if>
+		</set> 
+		WHERE ID=#{id} 
+	</update>
+	<update id='updateGoodTypeStatusById' parameterType='hashmap'> 
+ 		UPDATE GOOD_TYPE 
+		<set>
+			STATUS=#{status}
+		</set> 
+		WHERE ID=#{id} 
+	</update>
+	<select id='getGoodTypeById' resultMap='goodTypeMap'> 
+ 		SELECT <include refid='goodTypeColumns' /> 
+		FROM GOOD_TYPE	WHERE ID = #{id} AND STATUS = 0 
+	</select>
+	<select id='countAllGoodType' resultType='int'> 
+		SELECT count(ID) FROM GOOD_TYPE 
+		WHERE STATUS = 0 
+		<if test='keyword  != null'>AND NAME LIKE CONCAT('%',#{keyword},'%')  </if> 
+	</select>
+	<select id='getAllGoodType' resultMap='goodTypeMap'> 
+ 		SELECT <include refid='goodTypeColumns' /> FROM GOOD_TYPE 
+		WHERE STATUS = 0 
+		<if test='keyword  != null'>AND NAME LIKE CONCAT('%',#{keyword},'%')  </if> 
+		ORDER BY CREATTIME DESC 
+		<if test='pageCount  > 0 '> LIMIT #{offset},#{pageCount}</if> 
+	</select>
+</mapper>

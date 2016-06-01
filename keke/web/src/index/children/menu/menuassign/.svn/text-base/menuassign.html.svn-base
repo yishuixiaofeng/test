@@ -1,0 +1,16 @@
+<script>
+    importCSS(appContextPath+"/src/index/children/menu/menuassign/menuassign.css");
+    importScript(appContextPath+"/src/index/children/menu/menuassign/menuassign.js");
+</script>
+<div class="row">
+    <div class="col-lg-120 tableFilterBar">
+        <form class="form-inline"  id="menuMenuassignTableFilterBar">
+            <a id="menuMenuassignSearchBtn" class="btn btn-primary searchBtn"></a>
+        </form>
+    </div>
+    <div class="col-xs-120">
+        <h5>双击修改权限</h5>
+    </div>
+    <div class="col-xs-120" id="menuMenuassignTable">
+    </div>
+</div>

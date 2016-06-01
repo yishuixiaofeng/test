@@ -1,0 +1,9 @@
+.pageTurningHidden{
+    display: none;
+}
+.pager a{
+    cursor: pointer;
+}
+.pageTurningPager{
+    margin-bottom: 0;
+}
